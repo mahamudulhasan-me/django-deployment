@@ -1,0 +1,16 @@
+{% extends 'index/base.html' %}
+
+{% block bodyblock %}
+    <h3>Your profile:</h3>
+    <hr>
+    {% if user.is_authenticated %}
+    <img src="/media/{{user_more_info.profile_pic}}" style="border: 2px solid #008cff; width: 200px; border-radius:50%;">
+    <h3>{{user_info.first_name}} {{user_info.last_name}}</h3>
+    <h6><strong>Username: </strong>{{user_info.username}}</h6>
+    <h6><strong>Email: </strong>{{user_info.email}}</h6>
+    <h6><strong>Social Link: </strong><a href="{{user_more_info.facebook_id}}">Facebook</a></h6>
+    {% else %}
+    <h2 class="alert alert-primary"> Please login First!</h2>
+    {% endif %}
+    
+{% endblock %}

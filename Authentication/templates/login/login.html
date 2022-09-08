@@ -1,0 +1,16 @@
+{% extends '../index/base.html' %}
+
+{% block bodyblock %}
+    <h2>Login Form:</h2>
+    <hr>
+    <form action="{% url 'index:user_login' %}" method="POST" class="control form-control" style="width: 35%;">
+        {% csrf_token %}
+        <label for="username"></label>
+        <input type="text" name="username" placeholder="Enter Username..." class="control form-control"><br>
+        <label for="passwoerd"></label>
+        <input type="password" name="password" placeholder="Enter Password" class="control form-control"><br>
+
+        <input type="submit" value="Login" class="btn btn-info">
+    </form>
+{% endblock bodyblock %}
+

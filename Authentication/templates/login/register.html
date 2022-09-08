@@ -1,0 +1,17 @@
+{% extends '../index/base.html' %}
+
+{% block bodyblock %}
+    <h2>Register User:</h2>
+    <hr>
+    {% if registered %}
+    <h2 class="btn btn-success">Registered Successfully!</h2>
+    {% else %}
+    <form enctype="multipart/form-data" method="POST" class="control form-control">
+        {% csrf_token %}
+        {{user_form.as_p}}
+        {{user_info_form.as_p}}
+
+        <input type="submit" value="Register" class="btn btn-info">
+    {% endif %}
+    </form>
+{% endblock bodyblock %}
